@@ -1,15 +1,11 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-
-// Create Model BaseEntity
-class BaseEntity{
+//Create Model ShareData
+class ShareData{
 private:
     int id;
     string name;
-    string phonenumber;
-    int age; 
-
 public:
     void setId(int id){
         this->id = id;
@@ -23,6 +19,15 @@ public:
     string getName(){
         return name;
     }
+};
+// Create Model BaseEntity
+class BaseEntity : public ShareData{
+private:
+
+    string phonenumber;
+    int age; 
+
+public:
     void setPhoneNumber(string phonenumber){
         this->phonenumber = phonenumber;
     }
@@ -63,13 +68,37 @@ public:
     }
 };
 
-// Create Model Student
 
+// Create model Courses
+class Course : public ShareData{
+private:
+    int hours;
+    int studentIds[100];
+public:
+    void setHours(int hours){
+        this->hours = hours;
+    }
+    int getHours(){
+        return hours;
+    }
+    void setstudents(int studentIds[100]){
+        for (int i = 0; i < 100; i++)
+        {
+            this->studentIds[i] = studentIds[i];
+        }
+    }
+    int *getstudents(){
+        return studentIds;
+    }
+};
+
+// Create Model Student
 class Student : public BaseEntity{
 
 private:
     float gpa;    
     Teacher teachers[5];
+    Course courses[5];
 public:
     // setters and getters 
     void setGpa(float id){
@@ -79,12 +108,25 @@ public:
         return gpa;
     }
     void setTeacher(Teacher teachers[5]){
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < sizeof(courses)/sizeof(courses[0]); i++)
         {
-            this->teachers[i] = teachers[i];
+            this->courses[i] = courses[i];
         }
     }
     Teacher *getteacher(){
         return teachers;
     }
+    
+    void setcourses(Course courses[5]){
+        for (int i = 0; i < 5; i++)
+        {
+            this->courses[i] = courses[i];
+        }
+    }
+    Course *getcourses(){
+        return courses;
+    }
+    
 };
+
+
