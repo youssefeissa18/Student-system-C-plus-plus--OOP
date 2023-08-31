@@ -108,9 +108,9 @@ public:
         return gpa;
     }
     void setTeacher(Teacher teachers[5]){
-        for (int i = 0; i < sizeof(courses)/sizeof(courses[0]); i++)
+        for (int i = 0; i < 5; i++)
         {
-            this->courses[i] = courses[i];
+            this->teachers[i] = teachers[i];
         }
     }
     Teacher *getteacher(){
