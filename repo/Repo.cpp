@@ -7,7 +7,7 @@ using namespace std;
 // Interface
 class StudentRepo{
 public:
-    virtual void addStudent(Student student) = 0;
+    virtual int addStudent(Student student) = 0;
 };
 
 // Create StudentRepoIMP 
@@ -16,7 +16,7 @@ private:
     Student students[25];
     int index = 0;
 public: 
-    void addStudent(Student student){
+    int addStudent(Student student){
         if(index == 25)
         {
             cout << "Full Student\n";
@@ -33,7 +33,7 @@ public:
 // Interface
 class TeacherRepo{
 public: 
-    virtual void addTeacher(Teacher teacher) = 0;
+    virtual int addTeacher(Teacher teacher) = 0;
 };
 
 // Create TeacherRepoIMP 
@@ -42,7 +42,7 @@ private:
     Teacher teachers[25];
     int index = 0;
 public: 
-    void addTeacher(Teacher teacher){
+    int addTeacher(Teacher teacher){
         if(index == 25)
         {
             cout << "Full Teacher\n";
@@ -59,7 +59,7 @@ public:
 // Interface
 class CourseRepo{
 public: 
-    virtual void addCourse(Course course) = 0;
+    virtual int addCourse(Course course) = 0;
 };
 
 // Create CourseRepoIMP 
@@ -68,7 +68,7 @@ private:
     Course courses[25];
     int index = 0;
 public: 
-    void addCours(Course course){
+    int addCourse(Course course){
         if(index == 25)
         {
             cout << "Full Course\n";
