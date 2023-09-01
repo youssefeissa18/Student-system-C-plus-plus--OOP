@@ -7,9 +7,7 @@ using namespace std;
 // Interface
 class StudentRepo{
 public:
-    virtual void addStudent(Student student);
-
-
+    virtual void addStudent(Student student) = 0;
 };
 
 // Create StudentRepoIMP 
@@ -34,35 +32,51 @@ public:
 ////////////////////////////////////////// Teacher ///////////////////////////////////////////////////////////
 // Interface
 class TeacherRepo{
-private:
-
 public: 
-
-
-
+    virtual void addTeacher(Teacher teacher) = 0;
 };
 
 // Create TeacherRepoIMP 
 class TeacherRepoIMP : public TeacherRepo{
 private:
-
+    Teacher teachers[25];
+    int index = 0;
 public: 
+    void addTeacher(Teacher teacher){
+        if(index == 25)
+        {
+            cout << "Full Teacher\n";
+        }
+        else
+        {
+            teachers[index] = teacher;
+            index++;
+        }
+    }
 };
 
 ////////////////////////////////////////// Course ///////////////////////////////////////////////////////////
 // Interface
 class CourseRepo{
-private:
-
 public: 
-
-
-
+    virtual void addCourse(Course course) = 0;
 };
 
 // Create CourseRepoIMP 
 class CourseRepoIMP : public CourseRepo{
 private:
-
+    Course courses[25];
+    int index = 0;
 public: 
+    void addCours(Course course){
+        if(index == 25)
+        {
+            cout << "Full Course\n";
+        }
+        else
+        {
+            courses[index] = course;
+            index++;
+        }
+    }
 };
