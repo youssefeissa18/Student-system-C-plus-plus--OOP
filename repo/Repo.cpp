@@ -1,3 +1,4 @@
+#include "../model/Models.cpp"
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -5,10 +6,8 @@ using namespace std;
 ////////////////////////////////////////// Student ///////////////////////////////////////////////////////////
 // Interface
 class StudentRepo{
-private:
-
 public:
-
+    virtual void addStudent(Student student);
 
 
 };
@@ -16,8 +15,20 @@ public:
 // Create StudentRepoIMP 
 class StudentRepoIMP : public StudentRepo{
 private:
-
+    Student students[25];
+    int index = 0;
 public: 
+    void addStudent(Student student){
+        if(index == 25)
+        {
+            cout << "Full Student\n";
+        }
+        else
+        {
+            students[index] = student;
+            index++;
+        }
+    }
 };
 
 ////////////////////////////////////////// Teacher ///////////////////////////////////////////////////////////
@@ -50,7 +61,7 @@ public:
 };
 
 // Create CourseRepoIMP 
-class StudentRepoIMP : public TeacherRepo{
+class CourseRepoIMP : public CourseRepo{
 private:
 
 public: 
