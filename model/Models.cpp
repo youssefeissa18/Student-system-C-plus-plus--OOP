@@ -20,6 +20,7 @@ public:
         return name;
     }
 };
+
 // Create Model BaseEntity
 class BaseEntity : public ShareData{
 private:
