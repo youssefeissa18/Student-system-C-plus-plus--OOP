@@ -97,15 +97,15 @@ public:
 class Student : public BaseEntity{
 
 private:
-    float gpa;    
+    double gpa;    
     Teacher teachers[5];
     Course courses[5];
 public:
     // setters and getters 
-    void setGpa(float id){
+    void setGpa(double gpa){
         this->gpa = gpa;
     }
-    float getGpa(){
+    double getGpa(){
         return gpa;
     }
     void setTeacher(Teacher teachers[5]){

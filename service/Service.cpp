@@ -10,7 +10,7 @@ public:
 // Student Service impelemntaion 
 class StudentServiceimp : StudentService{
 private:
-    StudentRepo studentRepo;
+    StudentRepoIMP studentRepo;
 public:
     int addStudent(Student student){
         return studentRepo.addStudent(student);
@@ -29,7 +29,7 @@ public:
 // Course Service impelemntaion 
 class CourseServiceimp : public CourseService{
 private:
-    CourseRepo courseRepo;
+    CourseRepoIMP courseRepo;
 public:
     int addCourse(Course course){
         return courseRepo.addCourse(course);
@@ -46,7 +46,7 @@ public:
 // Teacher Service impelemntaion 
 class TeacherServiceimp : public TeacherService{
 private:
-    TeacherRepo teacherRepo;
+    TeacherRepoIMP teacherRepo;
 public:
    int addTeacher(Teacher teacher){
        return teacherRepo.addTeacher(teacher);

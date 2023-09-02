@@ -46,7 +46,7 @@ void SystemProcess(){
                     int ID;
                     string PhoneNumber;
                     int Age;
-                    float Gpa;
+                    double Gpa;
                     Student student;
                     cout << "Student Name :";
                     cin >> name;
@@ -64,8 +64,8 @@ void SystemProcess(){
                     cin >> ID;
                     student.setId(ID);
                     StudentController studentController;
-                    studentController.addStudent(student);
                     cout << student.getName() << "  " << student.getId() << " " << student.getPhoneNumber() <<  " " << student.getAge() << " " << student.getGpa();
+                    // studentController.addStudent(student);
                 }
                 }
                 break;
