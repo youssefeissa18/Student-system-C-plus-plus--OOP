@@ -1,7 +1,10 @@
 #include <bits/stdc++.h>
-// #include "controler/Controler.cpp"
+// #include "../repo/Repo.cpp"
+// #include "model/Models.cpp"
+#include "controler/Controler.cpp"
 using namespace std;
 void ShowList(string Type){
+    cout << "\t\t///////////////////////// " << Type << " System ///////////////////////////////" << endl;
     cout << "Please Enter Your Process" <<endl << "1- Add "<< Type << "\n2- Edit "<< Type << "\n3- Remove " << Type << "\n4- Show " << Type << "\n5- Exit"<< endl;
 }
 void DetermineYourType(){
@@ -9,7 +12,6 @@ void DetermineYourType(){
 }
 void SystemProcess();
 int main(){
-    cout << "\t\t///////////////////////// Student System /////////////////////////" << endl;
     cout << "\t\t///////////////////////// Start System //////////////////////////" << endl;
     int choice;
     cout << "Choice\n1- to Start Program\n2- To Terminate the Program\n";
@@ -33,8 +35,39 @@ void SystemProcess(){
         DetermineYourType();
         cin >> choice;
         switch(choice){
-            case 1:
+            case 1:{
                 ShowList("Student");
+                int processnumber;
+                cin >> processnumber;
+                if (processnumber == 1)
+                {
+                    cout << "Please Enter Student Data\n";
+                    string name;
+                    int ID;
+                    string PhoneNumber;
+                    int Age;
+                    float Gpa;
+                    Student student;
+                    cout << "Student Name :";
+                    cin >> name;
+                    student.setName(name);
+                    cout << "\nStudent Phone Number : ";
+                    cin >> PhoneNumber;
+                    student.setPhoneNumber(PhoneNumber);
+                    cout << "\nStudent Age : ";
+                    cin >> Age;
+                    student.setAge(Age);
+                    cout << "\nStudent Gpa :";
+                    cin >> Gpa;
+                    student.setGpa(Gpa);
+                    cout << "\nStudent ID :";
+                    cin >> ID;
+                    student.setId(ID);
+                    StudentController studentController;
+                    studentController.addStudent(student);
+                    cout << student.getName() << "  " << student.getId() << " " << student.getPhoneNumber() <<  " " << student.getAge() << " " << student.getGpa();
+                }
+                }
                 break;
             case 2:
                 ShowList("Teacher");
