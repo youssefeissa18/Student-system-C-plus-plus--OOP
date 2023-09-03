@@ -2,7 +2,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-
+// Static Data
 class Data{
 public:
     static Student students[25];
@@ -15,7 +15,7 @@ public:
     static int indexTeacher;
     static int IDTeacher;
 };
-
+// init static data
 Student Data::students[25];
 Course Data::courses[25];
 Teacher Data::teachers[25];
@@ -26,7 +26,7 @@ int Data::IDStudent = 1;
 int Data::IDTeacher = 1;
 int Data::IDCourse = 1;
 
-// Interface: mean this class for prototype only without implemntion and the body in this class StudentRepoIMP
+// Interface: mean this class for prototype only without implemntion and the body in this class TypeRepoIMP
 ////////////////////////////////////////// Student ///////////////////////////////////////////////////////////
 // Interface
 class StudentRepo{
