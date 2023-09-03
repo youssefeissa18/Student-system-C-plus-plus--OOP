@@ -2,6 +2,30 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+
+class Data{
+public:
+    static Student students[25];
+    static int indexStudent;
+    static int IDStudent;
+    static Course courses[25];
+    static int indexCourse;
+    static int IDCourse;
+    static Teacher teachers[25];
+    static int indexTeacher;
+    static int IDTeacher;
+};
+
+Student Data::students[25];
+Course Data::courses[25];
+Teacher Data::teachers[25];
+int Data::indexStudent = 0;
+int Data::indexCourse = 0;
+int Data::indexTeacher = 0;
+int Data::IDStudent = 1;
+int Data::IDTeacher = 1;
+int Data::IDCourse = 1;
+
 // Interface: mean this class for prototype only without implemntion and the body in this class StudentRepoIMP
 ////////////////////////////////////////// Student ///////////////////////////////////////////////////////////
 // Interface
@@ -13,19 +37,20 @@ public:
 // Create StudentRepoIMP 
 class StudentRepoIMP : public StudentRepo{
 private:
-    Student students[25];
-    int index = 0;
+    Data data;
 public: 
     int addStudent(Student student){
-        if(index == 25)
+        if(data.indexStudent == 25)
         {
             cout << "Full Student\n";
         }
         else
         {
-            students[index] = student;
-            index++;
+            student.setId(data.IDStudent++);
+            data.students[data.indexStudent] = student;
+            data.indexStudent++;
         }
+        return student.getId();
     }
 };
 
@@ -39,19 +64,20 @@ public:
 // Create TeacherRepoIMP 
 class TeacherRepoIMP : public TeacherRepo{
 private:
-    Teacher teachers[25];
-    int index = 0;
+    Data data;
 public: 
     int addTeacher(Teacher teacher){
-        if(index == 25)
+        if(data.indexTeacher == 25)
         {
             cout << "Full Teacher\n";
         }
         else
         {
-            teachers[index] = teacher;
-            index++;
+            teacher.setId(data.IDTeacher++);
+            data.teachers[data.indexTeacher] = teacher;
+            data.indexTeacher++;
         }
+        return teacher.getId();
     }
 };
 
@@ -65,18 +91,19 @@ public:
 // Create CourseRepoIMP 
 class CourseRepoIMP : public CourseRepo{
 private:
-    Course courses[25];
-    int index = 0;
+    Data data;
 public: 
     int addCourse(Course course){
-        if(index == 25)
+        if(data.indexCourse == 25)
         {
             cout << "Full Course\n";
         }
         else
         {
-            courses[index] = course;
-            index++;
+            course.setId(data.IDCourse++);
+            data.courses[data.indexCourse] = course;
+            data.indexCourse++;
         }
+        return course.getId();
     }
 };

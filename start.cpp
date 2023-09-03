@@ -5,10 +5,10 @@
 using namespace std;
 void ShowList(string Type){
     cout << "\t\t///////////////////////// " << Type << " System ///////////////////////////////" << endl;
-    cout << "Please Enter Your Process" <<endl << "1- Add "<< Type << "\n2- Edit "<< Type << "\n3- Remove " << Type << "\n4- Show " << Type << "\n5- Exit"<< endl;
+    cout << "Please Enter Your Process" <<endl << "1- Add "<< Type << "\n2- Edit "<< Type << "\n3- Remove " << Type << "\n4- Show " << Type << "\n5- Back to Home Screen"<< endl;
 }
 void DetermineYourType(){
-    cout << "\nPlease Enter Your Type" <<endl << "1- About Student\n2- About Teacher\n3- About Course\n4- Exit"<< endl;
+    cout << "\nPlease Enter Your Type" <<endl << "1- About Student\n2- About Teacher\n3- About Course\n4- Back to Start Menu"<< endl;
 }
 void SystemProcess();
 int main(){
@@ -48,7 +48,7 @@ void SystemProcess(){
                     int Age;
                     double Gpa;
                     Student student;
-                    cout << "Student Name :";
+                    cout << "Student Name : ";
                     cin >> name;
                     student.setName(name);
                     cout << "\nStudent Phone Number : ";
@@ -57,15 +57,12 @@ void SystemProcess(){
                     cout << "\nStudent Age : ";
                     cin >> Age;
                     student.setAge(Age);
-                    cout << "\nStudent Gpa :";
+                    cout << "\nStudent Gpa : ";
                     cin >> Gpa;
                     student.setGpa(Gpa);
-                    cout << "\nStudent ID :";
-                    cin >> ID;
-                    student.setId(ID);
                     StudentController studentController;
-                    cout << student.getName() << "  " << student.getId() << " " << student.getPhoneNumber() <<  " " << student.getAge() << " " << student.getGpa();
-                    // studentController.addStudent(student);
+                    ID = studentController.addStudent(student);
+                    cout << ID << endl;
                 }
                 }
                 break;
@@ -75,7 +72,7 @@ void SystemProcess(){
             case 3:
                 ShowList("Course");
                 break;
-            case 5:
+            case 4:
                 cout << "Exit\n";
                 flag = 1;
                 break;
@@ -85,7 +82,7 @@ void SystemProcess(){
         }
         if (flag == 1)
         {
-            break;
+            main();
         }
     }
 }
