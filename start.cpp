@@ -6,10 +6,13 @@ using namespace std;
 void ShowList(string Type);
 void DetermineYourType();
 void addStudent();
+void addTeacher();
+void addCourse();
 void SystemProcess();
 int processnumber;
 int choice;
 int flag = 0;
+int ID;
 int main(){
     cout << "\t\t///////////////////////// Start System //////////////////////////" << endl;
     int choice;
@@ -73,7 +76,7 @@ void SystemProcess(){
                 switch (processnumber)
                 {
                 case 1:
-                    cout << "Add Teacher" << endl;
+                    addTeacher();
                     break;
                 case 2:
                     cout << "Remove Teacher" << endl;
@@ -98,7 +101,7 @@ void SystemProcess(){
                 switch (processnumber)
                 {
                 case 1:
-                    cout << "Add Course" << endl;
+                    addCourse();
                     break;
                 case 2:
                     cout << "Remove Course" << endl;
@@ -133,26 +136,65 @@ void SystemProcess(){
 }
 
 void addStudent(){
-    cout << "Please Enter Student Data\n";
-    string name;
-    int ID;
-    string PhoneNumber;
-    int Age;
-    double Gpa;
     Student student;
+    cout << "Please Enter Student Data\n";
     cout << "Student Name : ";
+    string name;
     cin >> name;
     student.setName(name);
     cout << "\nStudent Phone Number : ";
+    string PhoneNumber;
     cin >> PhoneNumber;
     student.setPhoneNumber(PhoneNumber);
     cout << "\nStudent Age : ";
+    int Age;
     cin >> Age;
     student.setAge(Age);
     cout << "\nStudent Gpa : ";
+    double Gpa;
     cin >> Gpa;
     student.setGpa(Gpa);
     StudentController studentController;
     ID = studentController.addStudent(student);
-    cout << "Successor Add with ID : ["<< ID << "]" << endl;
+    cout << "Successor Add Student with ID : ["<< ID << "]" << endl;
+}
+
+void addTeacher(){
+    Teacher teacher;
+    cout << "Please Enter Teacher Data\n";
+    cout << "Teacher Name : ";
+    string name;
+    cin >> name;
+    teacher.setName(name);
+    cout << "\nTeacher Phone Number : ";
+    string PhoneNumber;
+    cin >> PhoneNumber;
+    teacher.setPhoneNumber(PhoneNumber);
+    cout << "\nTeacher Age : ";
+    int Age;
+    cin >> Age;
+    teacher.setAge(Age);
+    cout << "\nTeacher salary : ";
+    double salary;
+    cin >> salary;
+    teacher.setSalary(salary);
+    TeacherController teacherController;
+    ID = teacherController.addTeacher(teacher);
+    cout << "Successor Add Teacher with ID : ["<< ID << "]" << endl;
+}
+
+void addCourse(){
+    Course course;
+    cout << "Please Enter course Data\n";
+    cout << "Course Name : ";
+    string name;
+    cin >> name;
+    course.setName(name);
+    cout << "\nCourse Hours : ";
+    int hours;
+    cin >> hours;
+    course.setHours(hours);
+    CourseController courseController;
+    ID = courseController.addCourse(course);
+    cout << "Successor Add Course with ID : ["<< ID << "]" << endl;   
 }
