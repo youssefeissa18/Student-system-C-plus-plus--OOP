@@ -1,5 +1,5 @@
 #include "../repo/Repo.cpp"
-
+#include "../validation/Validation.cpp"
 
 ////////////////////////////////////////// Student ///////////////////////////////////////////////////////////
 // Interface
@@ -11,31 +11,10 @@ public:
 class StudentServiceimp : StudentService{
 private:
     StudentRepoIMP studentRepo;
+    StudentValidation studentValidation;
 public:
     int addStudent(Student student){
-        if (student.getName().size() == 0 || student.getName().size() < 4 || student.getName().size() > 10)
-        {
-            cout << "Invalid Name!\n";
-        }
-        else if (student.getAge() >= 30 && student.getAge() <= 18)
-        {
-            cout << "invaild Aga \n";
-        }
-        else if (student.getPhoneNumber().size() != 11 ||
-            student.getPhoneNumber()[0] != '0' ||(
-            student.getPhoneNumber()[1] + student.getPhoneNumber()[2] != '1'+'1'&& 
-            student.getPhoneNumber()[1] + student.getPhoneNumber()[2] != '1'+'2'&& 
-            student.getPhoneNumber()[1] + student.getPhoneNumber()[2] != '1'+'0'&&
-            student.getPhoneNumber()[1] + student.getPhoneNumber()[2] != '1'+'5')
-        )
-        {
-            cout << "Invalid Phone Number\n";
-        }
-        else if (student.getGpa() > 4 && student.getGpa() < 0)
-        {
-            cout << "invalid Gpa \n";
-        }
-        else
+        if (studentValidation.validateFunc(student) == 1)
         {
             return studentRepo.addStudent(student);
         }
@@ -56,20 +35,13 @@ public:
 class CourseServiceimp : public CourseService{
 private:
     CourseRepoIMP courseRepo;
+    CourseValidation courseValidation;
 public:
     int addCourse(Course course){
-        if (course.getHours() < 2 && course.getHours() > 5)
+        if (courseValidation.validateFunc(course) == 1)
         {
-            cout << "Invalid Hours!\n";
+            return courseRepo.addCourse(course);  
         }
-        else if (course.getName().size() == 0 && course.getName().size() > 20 && course.getName().size() < 4)
-        {
-            cout << "Invalid Name\n";
-        }
-        else 
-        {
-            return courseRepo.addCourse(course);   
-        }   
         return -1;     
     }
 };
@@ -85,31 +57,10 @@ public:
 class TeacherServiceimp : public TeacherService{
 private:
     TeacherRepoIMP teacherRepo;
+    TeacherValidation teacherValidation;
 public:
    int addTeacher(Teacher teacher){
-        if (teacher.getName().size() == 0 && teacher.getName().size() > 10 && teacher.getName().size() < 4)
-        {
-            cout << "Invalid Name\n"; 
-        }
-        else if (
-            teacher.getPhoneNumber().size() != 11 ||
-            teacher.getPhoneNumber()[0] != '0' ||(
-            teacher.getPhoneNumber()[1] + teacher.getPhoneNumber()[2] != '1'+'1'&& 
-            teacher.getPhoneNumber()[1] + teacher.getPhoneNumber()[2] != '1'+'2'&& 
-            teacher.getPhoneNumber()[1] + teacher.getPhoneNumber()[2] != '1'+'0'&&
-            teacher.getPhoneNumber()[1] + teacher.getPhoneNumber()[2] != '1'+'5'))
-        {
-            cout << "Invalid Phone Number\n";
-        }
-        else if (teacher.getAge() > 65 && teacher.getAge() < 32)
-        {
-            cout << "invalid Age\n";
-        }
-        else if (teacher.getSalary() < 8000 &&  teacher.getSalary() > 15000)
-        {
-            cout << "Invalid Salary\n";
-        }
-        else
+        if (teacherValidation.validateFunc(teacher) == 1)
         {
             return teacherRepo.addTeacher(teacher);
         }    
