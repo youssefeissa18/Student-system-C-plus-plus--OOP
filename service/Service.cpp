@@ -13,7 +13,33 @@ private:
     StudentRepoIMP studentRepo;
 public:
     int addStudent(Student student){
-        return studentRepo.addStudent(student);
+        if (student.getName().size() == 0 || student.getName().size() < 4 || student.getName().size() > 10)
+        {
+            cout << "Invalid Name!\n";
+        }
+        else if (student.getAge() >= 30 && student.getAge() <= 18)
+        {
+            cout << "invaild Aga \n";
+        }
+        else if (student.getPhoneNumber().size() != 11 ||
+            student.getPhoneNumber()[0] != '0' ||(
+            student.getPhoneNumber()[1] + student.getPhoneNumber()[2] != '1'+'1'&& 
+            student.getPhoneNumber()[1] + student.getPhoneNumber()[2] != '1'+'2'&& 
+            student.getPhoneNumber()[1] + student.getPhoneNumber()[2] != '1'+'0'&&
+            student.getPhoneNumber()[1] + student.getPhoneNumber()[2] != '1'+'5')
+        )
+        {
+            cout << "Invalid Phone Number\n";
+        }
+        else if (student.getGpa() > 4 && student.getGpa() < 0)
+        {
+            cout << "invalid Gpa \n";
+        }
+        else
+        {
+            return studentRepo.addStudent(student);
+        }
+        return -1;
     }
     
 };

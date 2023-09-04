@@ -180,7 +180,11 @@ void addTeacher(){
     teacher.setSalary(salary);
     TeacherController teacherController;
     ID = teacherController.addTeacher(teacher);
-    cout << "Successor Add Teacher with ID : ["<< ID << "]" << endl;
+    if (ID != -1)
+    {   
+        cout << "Successor Add Teacher with ID : ["<< ID << "]" << endl;
+    }
+    
 }
 
 void addCourse(){
