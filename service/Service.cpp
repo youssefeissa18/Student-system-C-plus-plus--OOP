@@ -58,7 +58,19 @@ private:
     CourseRepoIMP courseRepo;
 public:
     int addCourse(Course course){
-        return courseRepo.addCourse(course);
+        if (course.getHours() < 2 && course.getHours() > 5)
+        {
+            cout << "Invalid Hours!\n";
+        }
+        else if (course.getName().size() == 0 && course.getName().size() > 20 && course.getName().size() < 4)
+        {
+            cout << "Invalid Name\n";
+        }
+        else 
+        {
+            return courseRepo.addCourse(course);   
+        }   
+        return -1;     
     }
 };
 
@@ -75,6 +87,32 @@ private:
     TeacherRepoIMP teacherRepo;
 public:
    int addTeacher(Teacher teacher){
-       return teacherRepo.addTeacher(teacher);
-    }
+        if (teacher.getName().size() == 0 && teacher.getName().size() > 10 && teacher.getName().size() < 4)
+        {
+            cout << "Invalid Name\n"; 
+        }
+        else if (
+            teacher.getPhoneNumber().size() != 11 ||
+            teacher.getPhoneNumber()[0] != '0' ||(
+            teacher.getPhoneNumber()[1] + teacher.getPhoneNumber()[2] != '1'+'1'&& 
+            teacher.getPhoneNumber()[1] + teacher.getPhoneNumber()[2] != '1'+'2'&& 
+            teacher.getPhoneNumber()[1] + teacher.getPhoneNumber()[2] != '1'+'0'&&
+            teacher.getPhoneNumber()[1] + teacher.getPhoneNumber()[2] != '1'+'5'))
+        {
+            cout << "Invalid Phone Number\n";
+        }
+        else if (teacher.getAge() > 65 && teacher.getAge() < 32)
+        {
+            cout << "invalid Age\n";
+        }
+        else if (teacher.getSalary() < 8000 &&  teacher.getSalary() > 15000)
+        {
+            cout << "Invalid Salary\n";
+        }
+        else
+        {
+            return teacherRepo.addTeacher(teacher);
+        }    
+        return -1;
+   }
 };

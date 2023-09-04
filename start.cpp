@@ -156,7 +156,10 @@ void addStudent(){
     student.setGpa(Gpa);
     StudentController studentController;
     ID = studentController.addStudent(student);
-    cout << "Successor Add Student with ID : ["<< ID << "]" << endl;
+    if (ID != -1)
+    {
+        cout << "Successor Add Student with ID : ["<< ID << "]" << endl;
+    }
 }
 
 void addTeacher(){
@@ -200,5 +203,8 @@ void addCourse(){
     course.setHours(hours);
     CourseController courseController;
     ID = courseController.addCourse(course);
-    cout << "Successor Add Course with ID : ["<< ID << "]" << endl;   
+    if (ID != -1)
+    {
+       cout << "Successor Add Course with ID : ["<< ID << "]" << endl; 
+    }   
 }
