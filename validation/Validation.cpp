@@ -1,6 +1,3 @@
-
-
-
 class StudentValidation{
 public:
     int validateFunc(Student student){
