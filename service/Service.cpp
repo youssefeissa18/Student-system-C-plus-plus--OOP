@@ -5,7 +5,8 @@
 // Interface
 class StudentService{
 public:
-   virtual int addStudent(Student student) = 0;
+    virtual int addStudent(Student student) = 0;
+    virtual Student showStudentByID(int ID) = 0;
 };
 // Student Service impelemntaion 
 class StudentServiceimp : StudentService{
@@ -13,6 +14,7 @@ private:
     StudentRepoIMP studentRepo;
     StudentValidation studentValidation;
     Valdiation valadiation;
+    Student studentResult;
 public:
     int addStudent(Student student){
         if (studentValidation.validateFunc(student) == 1)
@@ -29,6 +31,14 @@ public:
         }
         return -1;
     }
+    Student showStudentByID(int ID){
+        studentResult = studentRepo.showStudentByID(ID);
+        if (studentResult.getId() == -1)
+        {
+            cout << "Student with ID [" << ID << "] Not Found" << endl;
+        }
+        return studentResult;
+    };
     
 };
 
@@ -38,6 +48,7 @@ public:
 class CourseService{
 public:
     virtual int addCourse(Course course) = 0;
+    virtual Course showTeacherByID(int ID) = 0;
 };
 
 // Course Service impelemntaion 
@@ -46,6 +57,7 @@ private:
     CourseRepoIMP courseRepo;
     CourseValidation courseValidation;
     Valdiation valadiation;
+    Course courseResult;
 public:
     int addCourse(Course course){
         if (courseValidation.validateFunc(course) == 1)
@@ -62,6 +74,14 @@ public:
         }
         return -1;     
     }
+    Course showCourseByID(int ID){
+    courseResult = courseRepo.showCourseByID(ID);
+        if (courseResult.getId() == -1)
+        {
+            cout << "Course with ID [" << ID << "] Not Found" << endl;
+        }
+        return courseResult;
+    }
 };
 
 ////////////////////////////////////////// Teacher ///////////////////////////////////////////////////////////
@@ -69,6 +89,7 @@ public:
 class TeacherService{
 public:
     virtual int addTeacher(Teacher teacher) = 0;
+    virtual Teacher showTeacherByID(int ID) = 0;
 };
 
 // Teacher Service impelemntaion 
@@ -77,6 +98,7 @@ private:
     TeacherRepoIMP teacherRepo;
     TeacherValidation teacherValidation;
     Valdiation valdiation;
+    Teacher teacherResult;
 public:
    int addTeacher(Teacher teacher){
         if (teacherValidation.validateFunc(teacher) == 1)
@@ -93,4 +115,12 @@ public:
         }    
         return -1;
    }
+    Teacher showTeacherByID(int ID){
+        teacherResult = teacherRepo.showTeacherByID(ID);
+        if (teacherResult.getId() == -1)
+        {
+            cout << "Teacher with ID [" << ID << "] Not Found" << endl;
+        }
+        return teacherResult;
+    }
 };
