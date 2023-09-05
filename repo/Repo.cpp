@@ -42,7 +42,7 @@ public:
     int addStudent(Student student){
         if(data.indexStudent == 25)
         {
-            cout << "Full Student\n";
+            return -1;
         }
         else
         {
@@ -69,7 +69,7 @@ public:
     int addTeacher(Teacher teacher){
         if(data.indexTeacher == 25)
         {
-            cout << "Full Teacher\n";
+            return -1;
         }
         else
         {
@@ -96,7 +96,7 @@ public:
     int addCourse(Course course){
         if(data.indexCourse == 25)
         {
-            cout << "Full Course\n";
+            return -1;
         }
         else
         {

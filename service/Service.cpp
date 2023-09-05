@@ -12,11 +12,20 @@ class StudentServiceimp : StudentService{
 private:
     StudentRepoIMP studentRepo;
     StudentValidation studentValidation;
+    Valdiation valadiation;
 public:
     int addStudent(Student student){
         if (studentValidation.validateFunc(student) == 1)
         {
-            return studentRepo.addStudent(student);
+            int ID = studentRepo.addStudent(student);
+            if (ID == -1)
+            {
+                valadiation.FullData("Student");
+            }
+            else
+            {
+                return ID;
+            }
         }
         return -1;
     }
@@ -36,11 +45,20 @@ class CourseServiceimp : public CourseService{
 private:
     CourseRepoIMP courseRepo;
     CourseValidation courseValidation;
+    Valdiation valadiation;
 public:
     int addCourse(Course course){
         if (courseValidation.validateFunc(course) == 1)
         {
-            return courseRepo.addCourse(course);  
+            int ID = courseRepo.addCourse(course);
+            if (ID == -1)
+            {
+                valadiation.FullData("Course");
+            }
+            else
+            {
+                return ID;
+            }
         }
         return -1;     
     }
@@ -58,11 +76,20 @@ class TeacherServiceimp : public TeacherService{
 private:
     TeacherRepoIMP teacherRepo;
     TeacherValidation teacherValidation;
+    Valdiation valdiation;
 public:
    int addTeacher(Teacher teacher){
         if (teacherValidation.validateFunc(teacher) == 1)
         {
-            return teacherRepo.addTeacher(teacher);
+            int ID = teacherRepo.addTeacher(teacher);
+            if (ID == -1)
+            {
+                valdiation.FullData("teacher");
+            }
+            else
+            {
+                return ID;
+            }
         }    
         return -1;
    }

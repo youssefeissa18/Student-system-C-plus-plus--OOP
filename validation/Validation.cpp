@@ -1,3 +1,13 @@
+class Valdiation{
+public:
+    void FullData(string Data){
+        cout << "Full " << Data << "!" << endl;
+    }
+
+};
+
+
+
 class StudentValidation{
 public:
     int validateFunc(Student student){
