@@ -12,10 +12,14 @@ void SystemProcess();
 void SwitchStudent();
 void SwitchTeacher();
 void SwitchCourse();
+void showStudentByID();
+void showCourseByID();
+void showTeacherByID();
 int processnumber;
 int choice;
 int flag = 0;
 int ID;
+int id;
 int main(){
     cout << "\t\t///////////////////////// Start System //////////////////////////" << endl;
     int choice;
@@ -38,80 +42,10 @@ void DetermineYourType(){
 
 void ShowList(string Type){
     cout << "\t\t///////////////////////// " << Type << " System ///////////////////////////////" << endl;
-    cout << "Please Enter Your Process" <<endl << "1- Add "<< Type << "\n2- Edit "<< Type << "\n3- Remove " << Type << "\n4- Show " << Type << "\n5- Back to Home Screen"<< endl;
+    cout << "Please Enter Your Process" <<endl << "1- Add "<< Type << "\n2- Edit "<< Type << "\n3- Remove " << Type << "\n4- Show " << Type << "\n5- Show " << Type << " By ID" << "\n6- Back to Home Screen"<< endl;
 }
 
-void SwitchStudent(){
-    switch (processnumber)
-    {
-    case 1:
-        addStudent();
-        break;
-    case 2:
-        cout << "Remove Student" << endl;
-        break;
-    case 3:
-        cout << "Edit Student" << endl;
-        break;
-    case 4:
-        cout << "Show Student" << endl;
-        break;
-    case 5:
-        cout << "Back to operation process" << endl;
-        break;
-    default:
-        cout << "Invalid Choice and Choice the Correct Process\n";
-        break;
-    }
-}
-
-void SwitchTeacher(){
-    switch (processnumber)
-    {
-    case 1:
-        addTeacher();
-        break;
-    case 2:
-        cout << "Remove Teacher" << endl;
-        break;
-    case 3:
-        cout << "Edit Teacher" << endl;
-        break;
-    case 4:
-        cout << "Show Teacher" << endl;
-        break;
-    case 5:
-        cout << "Back to operation process" << endl;
-        break;
-    default:
-         cout << "Invalid Choice and Choice the Correct Process\n";
-        break;
-    }
-}
-void SwitchCourse(){
-    switch (processnumber)
-    {
-    case 1:
-        addCourse();
-        break;
-    case 2:
-        cout << "Remove Course" << endl;
-        break;
-    case 3:
-        cout << "Edit Course" << endl;
-        break;
-    case 4:
-        cout << "Show Course" << endl;
-        break;
-    case 5:
-        cout << "Back to operation process" << endl;
-        break;
-    default:
-        cout << "Invalid Choice and Choice the Correct Process\n";
-        break;
-    }
-}
-void SystemProcess(){
+void SystemProcess(){ // MAIN
     while (true)
     {   
         DetermineYourType();
@@ -145,6 +79,87 @@ void SystemProcess(){
         {
             main();
         }
+    }
+}
+
+void SwitchStudent(){
+    switch (processnumber)
+    {
+    case 1:
+        addStudent();
+        break;
+    case 2:
+        cout << "Remove Student" << endl;
+        break;
+    case 3:
+        cout << "Edit Student" << endl;
+        break;
+    case 4:
+        cout << "Show Student" << endl;
+        break;
+    case 5:
+        cout << "Show Student BY ID" << endl;
+        break;
+    case 6:
+        cout << "Back to operation process" << endl;
+        break;
+    default:
+        cout << "Invalid Choice and Choice the Correct Process\n";
+        break;
+    }
+}
+
+void SwitchTeacher(){
+    switch (processnumber)
+    {
+    case 1:
+        addTeacher();
+        break;
+    case 2:
+        cout << "Remove Teacher" << endl;
+        break;
+    case 3:
+        cout << "Edit Teacher" << endl;
+        break;
+    case 4:
+        cout << "Show Teacher" << endl;
+        break;
+    case 5:
+        cout << "Show Teacher BY ID" << endl;
+        break;
+    case 6:
+        cout << "Back to operation process" << endl;
+        break;
+    default:
+         cout << "Invalid Choice and Choice the Correct Process\n";
+        break;
+    }
+}
+
+void SwitchCourse(){
+    switch (processnumber)
+    {
+    case 1:
+        addCourse();
+        break;
+    case 2:
+        cout << "Remove Course" << endl;
+        break;
+    case 3:
+        cout << "Edit Course" << endl;
+        break;
+    case 4:
+        cout << "Show Course" << endl;
+        break;
+    case 5:
+        cout << "Show Course BY ID" << endl;
+        break;
+    case 6:
+        cout << "Back to operation process" << endl;
+        break;
+    default:
+        cout << "Invalid Choice and Choice the Correct Process\n";
+        break;
     }
 }
 
@@ -220,4 +235,25 @@ void addCourse(){
     {
        cout << "Successor Add Course with ID : ["<< ID << "]" << endl; 
     }   
+}
+
+void showStudentByID() {
+	cout<<"Enter Student Id :";
+	cin>>id;
+	StudentController studentController;
+	studentController.showStudentById(id);
+}
+
+void showCourseByID() {
+	cout<<"Enter Course Id :";
+	cin>>id;
+	CourseController courseController;
+	courseController.showCourseById(id);
+}
+
+void showTeacherByID() {
+	cout<<"Enter Teacher Id :";
+	cin>>id;
+	TeacherController teacherController;
+	teacherController.showStudentById(id);
 }

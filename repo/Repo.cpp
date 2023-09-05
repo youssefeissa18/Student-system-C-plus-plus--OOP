@@ -32,12 +32,14 @@ int Data::IDCourse = 1;
 class StudentRepo{
 public:
     virtual int addStudent(Student student) = 0;
+    virtual Student showStudentByID(int ID) = 0;
 };
 
 // Create StudentRepoIMP 
 class StudentRepoIMP : public StudentRepo{
 private:
     Data data;
+    Student invalidstudent;
 public: 
     int addStudent(Student student){
         if(data.indexStudent == 25)
@@ -52,6 +54,17 @@ public:
         }
         return student.getId();
     }
+    Student showStudentByID(int ID){
+        for (int i = 0; i < data.indexStudent; i++)
+        {
+            if (data.students[i].getId() == ID)
+            {
+                return data.students[i];
+            }
+        }
+        invalidstudent.setId(-1);
+        return invalidstudent;   
+    }
 };
 
 ////////////////////////////////////////// Teacher ///////////////////////////////////////////////////////////
@@ -59,12 +72,14 @@ public:
 class TeacherRepo{
 public: 
     virtual int addTeacher(Teacher teacher) = 0;
+    virtual Teacher showTeacherByID(int ID) = 0;
 };
 
 // Create TeacherRepoIMP 
 class TeacherRepoIMP : public TeacherRepo{
 private:
     Data data;
+    Teacher invalidteacher;
 public: 
     int addTeacher(Teacher teacher){
         if(data.indexTeacher == 25)
@@ -79,6 +94,17 @@ public:
         }
         return teacher.getId();
     }
+    Teacher showTeacherByID(int ID){
+        for (int i = 0; i < data.indexTeacher; i++)
+        {
+            if (data.teachers[i].getId() == ID)
+            {
+                return data.teachers[i];
+            }
+        }
+        invalidteacher.setId(-1);
+        return invalidteacher;   
+    }
 };
 
 ////////////////////////////////////////// Course ///////////////////////////////////////////////////////////
@@ -86,12 +112,14 @@ public:
 class CourseRepo{
 public: 
     virtual int addCourse(Course course) = 0;
+    virtual Course showCourseByID(int ID) = 0;
 };
 
 // Create CourseRepoIMP 
 class CourseRepoIMP : public CourseRepo{
 private:
     Data data;
+    Course invalidCourse;
 public: 
     int addCourse(Course course){
         if(data.indexCourse == 25)
@@ -105,5 +133,16 @@ public:
             data.indexCourse++;
         }
         return course.getId();
+    }
+    Course showCourseByID(int ID){
+        for (int i = 0; i < data.indexCourse; i++)
+        {
+            if (data.courses[i].getId() == ID)
+            {
+                return data.courses[i];
+            }
+        }
+        invalidCourse.setId(-1);
+        return invalidCourse;   
     }
 };
