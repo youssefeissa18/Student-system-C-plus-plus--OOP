@@ -5,9 +5,19 @@
 class StudentController{
 private:
     StudentServiceimp studentService;
+    Student student;
 public:
     int addStudent(Student student){
         return studentService.addStudent(student);
+    }
+    void showStudentByID(int ID){
+        student = studentService.showStudentByID(ID);
+        if (student.getId() != -1)
+        {
+            cout << "\t\tID\tname\t\tPhone Number\t\tGPA\t\tAge\n";
+            cout << "\t\t" << student.getId() << "\t\t" << student.getName() << "\t\t" << student.getPhoneNumber() << "\t\t" << student.getGpa() << "\t\t" << student.getAge() << endl;
+        }
+        
     }
 };
 
@@ -16,9 +26,18 @@ public:
 class CourseController{
 private:
     CourseServiceimp courseService;
-public:
+    Course course;
+public: 
     int addCourse(Course course){
         return courseService.addCourse(course);
+    }
+    void showCourseByID(int ID){
+        course = courseService.showCourseByID(ID);
+        if (course.getId() != -1)
+        {
+            cout << "\t\tID\tname\t\tHours" << endl;
+            cout << "\t\t" << course.getId() << "\t\t" << course.getName() << "\t\t" << course.getHours() << endl;
+        }
     }
 };
 
@@ -27,8 +46,17 @@ public:
 class TeacherController{
 private:
     TeacherServiceimp teacherService;
+    Teacher teacher;
 public:
     int addTeacher(Teacher teacher){
         return teacherService.addTeacher(teacher);
+    }
+    void showTeacherByID(int ID){
+       teacher = teacherService.showTeacherByID(ID);
+       if (teacher.getId() != -1)
+        {
+            cout << "\t\tID\tname\t\tPhone Number\t\tsalary\t\tAge\n";
+            cout << "\t\t" << teacher.getId() << "\t\t" << teacher.getName() << "\t\t" << teacher.getPhoneNumber() << "\t\t" << teacher.getSalary() << "\t\t" << teacher.getAge() << endl;
+        }        
     }
 };
