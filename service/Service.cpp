@@ -35,7 +35,7 @@ public:
         studentResult = studentRepo.showStudentByID(ID);
         if (studentResult.getId() == -1)
         {
-            cout << "Student with ID [" << ID << "] Not Found" << endl;
+            valadiation.showValidation("Student",ID);
         }
         return studentResult;
     };
@@ -78,7 +78,7 @@ public:
     courseResult = courseRepo.showCourseByID(ID);
         if (courseResult.getId() == -1)
         {
-            cout << "Course with ID [" << ID << "] Not Found" << endl;
+            valadiation.showValidation("Course",ID);
         }
         return courseResult;
     }
@@ -119,7 +119,7 @@ public:
         teacherResult = teacherRepo.showTeacherByID(ID);
         if (teacherResult.getId() == -1)
         {
-            cout << "Teacher with ID [" << ID << "] Not Found" << endl;
+            valdiation.showValidation("Teacher",ID);
         }
         return teacherResult;
     }

@@ -3,6 +3,9 @@ public:
     void FullData(string Data){
         cout << "Full " << Data << "!" << endl;
     }
+    void showValidation(string Type, int ID){
+        cout << Type << " with ID [" << ID << "] Not Found" << endl;
+    }
 
 };
 
