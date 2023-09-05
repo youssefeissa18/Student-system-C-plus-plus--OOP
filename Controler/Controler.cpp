@@ -15,7 +15,7 @@ public:
         if (student.getId() != -1)
         {
             cout << "\t\tID\tname\t\tPhone Number\t\tGPA\t\tAge\n";
-            cout << "\t\t" << student.getId() << "\t\t" << student.getName() << "\t\t" << student.getPhoneNumber() << "\t\t" << student.getGpa() << "\t\t" << student.getAge() << endl;
+            cout << "\t\t" << student.getId() << "\t" << student.getName() << "\t\t" << student.getPhoneNumber() << "\t\t" << student.getGpa() << "\t\t" << student.getAge() << endl;
         }
         
     }

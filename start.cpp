@@ -98,7 +98,7 @@ void SwitchStudent(){
         cout << "Show Student" << endl;
         break;
     case 5:
-        cout << "Show Student BY ID" << endl;
+        showStudentByID();
         break;
     case 6:
         cout << "Back to operation process" << endl;
@@ -125,7 +125,7 @@ void SwitchTeacher(){
         cout << "Show Teacher" << endl;
         break;
     case 5:
-        cout << "Show Teacher BY ID" << endl;
+        showTeacherByID();
         break;
     case 6:
         cout << "Back to operation process" << endl;
@@ -152,7 +152,7 @@ void SwitchCourse(){
         cout << "Show Course" << endl;
         break;
     case 5:
-        cout << "Show Course BY ID" << endl;
+        showCourseByID();
         break;
     case 6:
         cout << "Back to operation process" << endl;

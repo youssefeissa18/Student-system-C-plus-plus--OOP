@@ -9,7 +9,7 @@ public:
     virtual Student showStudentByID(int ID) = 0;
 };
 // Student Service impelemntaion 
-class StudentServiceimp : StudentService{
+class StudentServiceimp{
 private:
     StudentRepoIMP studentRepo;
     StudentValidation studentValidation;
@@ -52,7 +52,7 @@ public:
 };
 
 // Course Service impelemntaion 
-class CourseServiceimp : public CourseService{
+class CourseServiceimp {
 private:
     CourseRepoIMP courseRepo;
     CourseValidation courseValidation;
@@ -93,7 +93,7 @@ public:
 };
 
 // Teacher Service impelemntaion 
-class TeacherServiceimp : public TeacherService{
+class TeacherServiceimp{
 private:
     TeacherRepoIMP teacherRepo;
     TeacherValidation teacherValidation;
