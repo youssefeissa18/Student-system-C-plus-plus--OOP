@@ -7,6 +7,7 @@ class StudentService{
 public:
     virtual int addStudent(Student student) = 0;
     virtual Student showStudentByID(int ID) = 0;
+    virtual int editStudent(Student student) = 0;
 };
 // Student Service impelemntaion 
 class StudentServiceimp{
@@ -39,6 +40,14 @@ public:
         }
         return studentResult;
     };
+    int editStudent(Student student){
+        int index = studentRepo.editStudent(student);
+        if(index == -1){
+            valadiation.showValidation("Student",student.getId());
+        } else {
+            cout<<"Sucess Edit Student Wit ID ["<<student.getId()<<"]"<<endl;
+        }
+    }
     
 };
 
@@ -49,6 +58,8 @@ class CourseService{
 public:
     virtual int addCourse(Course course) = 0;
     virtual Course showTeacherByID(int ID) = 0;
+    virtual int editCourse(Course course) = 0;
+
 };
 
 // Course Service impelemntaion 
@@ -82,6 +93,14 @@ public:
         }
         return courseResult;
     }
+    int editCourse(Course course){
+        int index = courseRepo.editCourse(course);
+        if(index == -1){
+            valadiation.showValidation("Course",course.getId());
+        } else {
+            cout<<"Sucess Edit Course Wit ID ["<< course.getId()<<"]"<<endl;
+        }
+    }
 };
 
 ////////////////////////////////////////// Teacher ///////////////////////////////////////////////////////////
@@ -90,6 +109,8 @@ class TeacherService{
 public:
     virtual int addTeacher(Teacher teacher) = 0;
     virtual Teacher showTeacherByID(int ID) = 0;
+    virtual int editTeacher(Teacher teacher) = 0;
+
 };
 
 // Teacher Service impelemntaion 
@@ -122,5 +143,13 @@ public:
             valdiation.showValidation("Teacher",ID);
         }
         return teacherResult;
+    }
+    int editTeacher(Teacher teacher){
+        int index = teacherRepo.editTeacher(teacher);
+        if(index == -1){
+            valdiation.showValidation("Teacher",teacher.getId());
+        } else {
+            cout<<"Sucess Edit Teacher Wit ID ["<< teacher.getId()<<"]"<<endl;
+        }
     }
 };
