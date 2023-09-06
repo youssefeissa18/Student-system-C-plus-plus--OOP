@@ -15,6 +15,9 @@ void SwitchCourse();
 void showStudentByID();
 void showCourseByID();
 void showTeacherByID();
+void editStudent();
+void editCourse();
+void editTeacher();
 int processnumber;
 int choice;
 int flag = 0;
@@ -42,7 +45,7 @@ void DetermineYourType(){
 
 void ShowList(string Type){
     cout << "\t\t///////////////////////// " << Type << " System ///////////////////////////////" << endl;
-    cout << "Please Enter Your Process" <<endl << "1- Add "<< Type << "\n2- Edit "<< Type << "\n3- Remove " << Type << "\n4- Show " << Type << "\n5- Show " << Type << " By ID" << "\n6- Back to Home Screen"<< endl;
+    cout << "Please Enter Your Process" <<endl << "1- Add "<< Type << "\n2- Remove "<< Type << "\n3- Edit " << Type << "\n4- Show " << Type << "\n5- Show " << Type << " By ID" << "\n6- Back to Home Screen"<< endl;
 }
 
 void SystemProcess(){ // MAIN
@@ -92,7 +95,7 @@ void SwitchStudent(){
         cout << "Remove Student" << endl;
         break;
     case 3:
-        cout << "Edit Student" << endl;
+        editStudent();
         break;
     case 4:
         cout << "Show Student" << endl;
@@ -119,7 +122,7 @@ void SwitchTeacher(){
         cout << "Remove Teacher" << endl;
         break;
     case 3:
-        cout << "Edit Teacher" << endl;
+        editTeacher();
         break;
     case 4:
         cout << "Show Teacher" << endl;
@@ -146,7 +149,7 @@ void SwitchCourse(){
         cout << "Remove Course" << endl;
         break;
     case 3:
-        cout << "Edit Course" << endl;
+        editCourse();
         break;
     case 4:
         cout << "Show Course" << endl;
@@ -256,4 +259,74 @@ void showTeacherByID() {
 	cin>>id;
 	TeacherController teacherController;
 	teacherController.showTeacherByID(id);
+}
+
+void editStudent(){
+	cout<<"Please Enter Student Data: "<<endl;
+	Student student;
+	cout<<"Enter Student ID :";
+	cin>>id;
+	student.setId(id);
+	cout<<"Enter Student Name :";
+	string name;
+	cin>>name;
+	student.setName(name);
+	cout<<"Enter Student Age :";
+	int age;
+	cin>>age;
+	student.setAge(age);
+	cout<<"Enter Student PhoneNumber :";
+	string phoneNumber;
+	cin>>phoneNumber;
+	student.setPhoneNumber(phoneNumber);
+	cout<<"Enter Student GPA :";
+	double gpa;
+	cin>>gpa;
+	student.setGpa(gpa);
+	StudentController studentController;
+	studentController.updateStudent(student);
+}
+
+void editCourse(){
+	Course course;
+	cout<<"Please Enter Course Data: "<<endl;
+	cout<<"Enter Course ID :";
+	cin>>id;
+	course.setId(id);
+	cout<<"Enter Course Name :";
+	string name;
+	cin>>name;
+	course.setName(name);
+	cout<<"Enter Course hour :";
+	double hour;
+	cin>>hour;
+	course.setHours(hour);
+	CourseController courseController;
+	courseController.updateCourse(course);
+}
+
+void editTeacher(){
+	cout<<"Please Enter Teacher Data: "<<endl;
+	Teacher teacher;
+	cout<<"Enter Teacher ID :";
+	cin>>id;
+	teacher.setId(id);
+	cout<<"Enter Teacher Name :";
+	string name;
+	cin>>name;
+	teacher.setName(name);
+	cout<<"Enter Teacher Age :";
+	int age;
+	cin>>age;
+	teacher.setAge(age);
+	cout<<"Enter Teacher PhoneNumber :";
+	string phoneNumber;
+	cin>>phoneNumber;
+	teacher.setPhoneNumber(phoneNumber);
+	cout<<"Enter Teacher Salary :";
+	double salary;
+	cin>>salary;
+	teacher.setSalary(salary);
+	TeacherController teacherController;
+	teacherController.updateTeacher(teacher);
 }
