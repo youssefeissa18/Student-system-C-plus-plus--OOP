@@ -262,9 +262,9 @@ void showTeacherByID() {
 }
 
 void editStudent(){
-	cout<<"Please Enter Student Data: "<<endl;
+	cout<<"Please Enter New Data for Student: "<<endl;
 	Student student;
-	cout<<"Enter Student ID :";
+	cout<<"Enter Old Student ID :";
 	cin>>id;
 	student.setId(id);
 	cout<<"Enter Student Name :";
@@ -289,8 +289,8 @@ void editStudent(){
 
 void editCourse(){
 	Course course;
-	cout<<"Please Enter Course Data: "<<endl;
-	cout<<"Enter Course ID :";
+	cout<<"Please Enter New Data for Course : "<<endl;
+	cout<<"Enter Old Course ID :";
 	cin>>id;
 	course.setId(id);
 	cout<<"Enter Course Name :";
@@ -306,9 +306,9 @@ void editCourse(){
 }
 
 void editTeacher(){
-	cout<<"Please Enter Teacher Data: "<<endl;
+	cout<<"Please Enter New Data for Teacher : "<<endl;
 	Teacher teacher;
-	cout<<"Enter Teacher ID :";
+	cout<<"Enter Old Teacher ID :";
 	cin>>id;
 	teacher.setId(id);
 	cout<<"Enter Teacher Name :";
