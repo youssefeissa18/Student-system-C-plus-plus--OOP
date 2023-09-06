@@ -1,2 +1,0 @@
-
-// 	courseController.showCourseByID(id);

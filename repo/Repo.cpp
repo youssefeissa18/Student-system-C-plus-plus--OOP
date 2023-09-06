@@ -33,6 +33,7 @@ class StudentRepo{
 public:
     virtual int addStudent(Student student) = 0;
     virtual Student showStudentByID(int ID) = 0;
+    virtual int editStudent(Student student) = 0;
 };
 
 // Create StudentRepoIMP 
@@ -40,6 +41,7 @@ class StudentRepoIMP : public StudentRepo{
 private:
     Data data;
     Student invalidstudent;
+    int index = -1;
 public: 
     int addStudent(Student student){
         if(data.indexStudent == 25)
@@ -65,6 +67,20 @@ public:
         invalidstudent.setId(-1);
         return invalidstudent;   
     }
+    int editStudent(Student student){
+        for(int i=0;i<data.indexStudent;i++){
+			if(data.students[i].getId() == student.getId()){
+				index = i;
+				break;
+				}
+			}
+        if(index == -1){
+            return -1;
+        } else {
+            data.students[index] = student;
+            return index;
+        }
+    }
 };
 
 ////////////////////////////////////////// Teacher ///////////////////////////////////////////////////////////
@@ -73,6 +89,7 @@ class TeacherRepo{
 public: 
     virtual int addTeacher(Teacher teacher) = 0;
     virtual Teacher showTeacherByID(int ID) = 0;
+    virtual int editTeacher(Teacher teacher) = 0;
 };
 
 // Create TeacherRepoIMP 
@@ -80,6 +97,7 @@ class TeacherRepoIMP : public TeacherRepo{
 private:
     Data data;
     Teacher invalidteacher;
+    int index = -1;
 public: 
     int addTeacher(Teacher teacher){
         if(data.indexTeacher == 25)
@@ -105,6 +123,20 @@ public:
         invalidteacher.setId(-1);
         return invalidteacher;   
     }
+    int editTeacher(Teacher teacher){
+        for(int i=0;i<data.indexTeacher;i++){
+            if(data.teachers[i].getId() == teacher.getId()){
+                index = i;
+                break;
+            }
+			}
+        if(index == -1){
+            return -1;
+        } else {
+            data.teachers[index] = teacher;
+            return index;
+        }
+    }
 };
 
 ////////////////////////////////////////// Course ///////////////////////////////////////////////////////////
@@ -113,6 +145,7 @@ class CourseRepo{
 public: 
     virtual int addCourse(Course course) = 0;
     virtual Course showCourseByID(int ID) = 0;
+    virtual int editCourse(Course course) = 0;
 };
 
 // Create CourseRepoIMP 
@@ -120,6 +153,7 @@ class CourseRepoIMP : public CourseRepo{
 private:
     Data data;
     Course invalidCourse;
+    int index = -1;
 public: 
     int addCourse(Course course){
         if(data.indexCourse == 25)
@@ -144,5 +178,21 @@ public:
         }
         invalidCourse.setId(-1);
         return invalidCourse;   
+    }
+    int editCourse(Course course){
+        for(int i=0;i<data.indexCourse;i++){
+            if(data.courses[i].getId() == course.getId()){
+                index = i;
+                break;
+            }
+        }
+        if(index == -1){
+            return -1;
+        } 
+        else 
+        {
+            data.courses[index] = course;
+            return index;
+        }
     }
 };
